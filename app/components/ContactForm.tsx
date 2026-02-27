@@ -5,28 +5,43 @@ import { useState } from "react";
 export default function ContactForm() {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
+    const [error, setError] = useState("");
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         setLoading(true);
+        setError("");
+        setSuccess(false);
 
         const form = e.currentTarget;
         const formData = new FormData(form);
 
-        const res = await fetch("/api/contact", {
-            method: "POST",
-            body: JSON.stringify({
-                name: formData.get("name"),
-                email: formData.get("email"),
-                message: formData.get("message"),
-            }),
-        });
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: formData.get("name"),
+                    email: formData.get("email"),
+                    message: formData.get("message"),
+                }),
+            });
 
-        setLoading(false);
+            if (!res.ok) {
+                throw new Error("Failed to send message");
+            }
 
-        if (res.ok) {
             setSuccess(true);
             form.reset();
+
+            // auto-hide success after 4 seconds
+            setTimeout(() => setSuccess(false), 4000);
+        } catch (err) {
+            setError("Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -61,14 +76,24 @@ export default function ContactForm() {
             <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-indigo-600 py-3 rounded-lg hover:bg-indigo-500 transition"
+                className={`w-full py-3 rounded-lg transition ${
+                    loading
+                        ? "bg-indigo-400 cursor-not-allowed"
+                        : "bg-indigo-600 hover:bg-indigo-500"
+                }`}
             >
                 {loading ? "Sending..." : "Send Message"}
             </button>
 
             {success && (
-                <p className="text-green-400 text-center">
-                    Message sent successfully!
+                <p className="text-green-400 text-center font-medium">
+                    ✅ Message sent successfully!
+                </p>
+            )}
+
+            {error && (
+                <p className="text-red-400 text-center font-medium">
+                    ❌ {error}
                 </p>
             )}
         </form>
