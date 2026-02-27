@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL("http://localhost:3000"), // 🔥 এটা change করো
+    metadataBase: new URL("https://robiul-portfolio-nine.vercel.app"), // 🔥 এটা change করো
 
     title: "Robiul Islam | Full Stack Java & Flutter Developer",
     description:
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         title: "Robiul Islam Portfolio",
         description:
             "Full Stack Developer | Spring Boot & Flutter Engineer",
-        url: "https://yourdomain.com",
+        url: "https://robiul-portfolio-nine.vercel.app",
         siteName: "Robiul Portfolio",
         images: [
             {
