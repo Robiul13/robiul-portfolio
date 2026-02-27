@@ -52,7 +52,7 @@ export default function Hero() {
                     <a href="https://github.com/Robiul13" target="_blank">
                         <FaGithub />
                     </a>
-                    <a href="https://linkedin.com" target="_blank">
+                    <a href="https://www.linkedin.com/in/robiul-islam-25b96a140/" target="_blank">
                         <FaLinkedin />
                     </a>
                 </div>
