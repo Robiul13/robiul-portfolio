@@ -12,7 +12,7 @@ export default function Stats() {
                     </div>
 
                     <div className="bg-slate-800 p-8 rounded-xl hover:scale-105 transition duration-500 hover:shadow-xl hover:shadow-indigo-500/20">
-                        <h3 className="text-4xl font-bold text-indigo-400 mb-2">2+</h3>
+                        <h3 className="text-4xl font-bold text-indigo-400 mb-2">8+</h3>
                         <p className="text-gray-400">Years Experience</p>
                     </div>
 
