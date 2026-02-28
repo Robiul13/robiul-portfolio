@@ -6,71 +6,77 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Hero() {
     return (
-        <section className="relative flex flex-col items-center justify-center text-center py-32 px-6 pt-40 overflow-hidden">
+        <section className="relative flex flex-col items-center justify-center text-center py-32 px-6 pt-44 overflow-hidden">
 
             {/* Background Glow */}
             <div className="absolute inset-0 -z-10 overflow-hidden">
-                <div className="absolute w-[600px] h-[600px] bg-indigo-600/30 rounded-full blur-[150px] animate-pulse top-[-150px] left-[-150px]" />
-                <div className="absolute w-[600px] h-[600px] bg-purple-600/30 rounded-full blur-[150px] animate-pulse bottom-[-150px] right-[-150px]" />
+                <div className="absolute w-[700px] h-[700px] bg-indigo-600/20 rounded-full blur-[180px] top-[-200px] left-[-200px]" />
+                <div className="absolute w-[700px] h-[700px] bg-purple-600/20 rounded-full blur-[180px] bottom-[-200px] right-[-200px]" />
             </div>
 
             <Reveal>
-                {/* Name */}
-                <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                    Hi, I'm{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
+
+                {/* Main Identity */}
+                <h1 className="text-5xl md:text-7xl font-extrabold mb-4 leading-tight tracking-tight">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-500">
             Robiul Islam
           </span>
                 </h1>
 
-                {/* Role Animation */}
-                <h2 className="text-2xl md:text-3xl text-indigo-400 font-semibold mb-6">
+                {/* Fixed Role */}
+                <h2 className="text-xl md:text-2xl text-gray-300 font-medium mb-4">
+                    Senior Java & Flutter Developer
+                </h2>
+
+                {/* Animated Skills */}
+                <div className="text-indigo-400 font-semibold text-lg md:text-xl mb-6">
                     <TypeAnimation
                         sequence={[
-                            "Full Stack Developer",
+                            "Spring Boot Backend Specialist",
                             2000,
                             "Enterprise Software Engineer",
                             2000,
-                            "Spring Boot Backend Specialist",
+                            "REST API & System Architecture Expert",
                             2000,
-                            "Flutter Cross-Platform Developer",
+                            "Cross-Platform Mobile App Developer",
                             2000,
                         ]}
                         speed={50}
                         repeat={Infinity}
                     />
-                </h2>
+                </div>
 
                 {/* Description */}
-                <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                    I build scalable enterprise systems, secure backend architectures,
-                    and cross-platform mobile applications that power real-world business operations.
+                <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                    I design and develop scalable enterprise systems, secure backend
+                    architectures, and high-performance mobile applications that power
+                    real-world business operations.
                 </p>
 
                 {/* CTA */}
-                <div className="mt-10 flex gap-4 justify-center">
+                <div className="mt-10 flex gap-5 justify-center flex-wrap">
                     <a
                         href="#projects"
-                        className="bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-3 rounded-lg font-medium hover:scale-105 transition-transform"
+                        className="px-8 py-3 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 font-semibold shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all duration-300"
                     >
                         View Projects
                     </a>
 
                     <a
                         href="#contact"
-                        className="border border-indigo-600 px-8 py-3 rounded-lg font-medium hover:bg-indigo-600 hover:text-white transition"
+                        className="px-8 py-3 rounded-lg border border-indigo-500 text-indigo-400 font-semibold hover:bg-indigo-600 hover:text-white transition-all duration-300"
                     >
                         Hire Me
                     </a>
                 </div>
 
-                {/* Social */}
-                <div className="flex justify-center gap-6 mt-8 text-2xl text-gray-400">
+                {/* Social Icons */}
+                <div className="flex justify-center gap-8 mt-10 text-2xl text-gray-500">
                     <a
                         href="https://github.com/Robiul13"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-indigo-400 transition"
+                        className="hover:text-indigo-400 transition duration-300"
                     >
                         <FaGithub />
                     </a>
@@ -78,11 +84,12 @@ export default function Hero() {
                         href="https://www.linkedin.com/in/robiul-islam-25b96a140/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-indigo-400 transition"
+                        className="hover:text-indigo-400 transition duration-300"
                     >
                         <FaLinkedin />
                     </a>
                 </div>
+
             </Reveal>
         </section>
     );

@@ -29,16 +29,12 @@ export default function ContactForm() {
                 }),
             });
 
-            if (!res.ok) {
-                throw new Error("Failed to send message");
-            }
+            if (!res.ok) throw new Error("Failed");
 
             setSuccess(true);
             form.reset();
-
-            // auto-hide success after 4 seconds
             setTimeout(() => setSuccess(false), 4000);
-        } catch (err) {
+        } catch {
             setError("Something went wrong. Please try again.");
         } finally {
             setLoading(false);
@@ -48,13 +44,13 @@ export default function ContactForm() {
     return (
         <form
             onSubmit={handleSubmit}
-            className="max-w-xl mx-auto space-y-6 text-left"
+            className="bg-gradient-to-br from-slate-800 to-slate-900 p-10 rounded-2xl border border-slate-700 space-y-6"
         >
             <input
                 name="name"
                 required
                 placeholder="Your Name"
-                className="w-full p-4 bg-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full p-4 bg-slate-800 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
 
             <input
@@ -62,27 +58,27 @@ export default function ContactForm() {
                 type="email"
                 required
                 placeholder="Your Email"
-                className="w-full p-4 bg-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full p-4 bg-slate-800 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
 
             <textarea
                 name="message"
                 required
                 rows={5}
-                placeholder="Your Message"
-                className="w-full p-4 bg-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                placeholder="Tell me about your project..."
+                className="w-full p-4 bg-slate-800 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
 
             <button
                 type="submit"
                 disabled={loading}
-                className={`w-full py-3 rounded-lg transition ${
+                className={`w-full py-3 rounded-lg font-semibold transition ${
                     loading
                         ? "bg-indigo-400 cursor-not-allowed"
-                        : "bg-indigo-600 hover:bg-indigo-500"
+                        : "bg-gradient-to-r from-indigo-600 to-purple-600 hover:scale-105 shadow-lg"
                 }`}
             >
-                {loading ? "Sending..." : "Send Message"}
+                {loading ? "Sending..." : "Start a Conversation"}
             </button>
 
             {success && (
